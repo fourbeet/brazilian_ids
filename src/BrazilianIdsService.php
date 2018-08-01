@@ -169,11 +169,11 @@ class BrazilianIdsService implements BrazilianIdsServiceInterface {
     // Formats as CPF or CNPJ depending on the number of digits.
     if (preg_match('/^[0-9]{11}$/', $value)) {
       // CPF number.
-      $value = $this->formatCpf($value, $error);
+      $value = $this->formatCpf($value);
     }
     elseif (preg_match('/^[0-9]{14}$/', $value)) {
       // CNPJ number.
-      $value = $this->formatCnpj($value, $error);
+      $value = $this->formatCnpj($value);
     }
     return $value;
   }
