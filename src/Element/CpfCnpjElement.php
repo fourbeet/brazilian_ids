@@ -36,7 +36,7 @@ class CpfCnpjElement extends Textfield {
   }
 
   /**
-   * Validates the CPF value.
+   * Validates the CPF or CNPJ value.
    */
   public static function validateElement(&$element, FormStateInterface $form_state, &$complete_form) {
     $value = $element['#value'];
