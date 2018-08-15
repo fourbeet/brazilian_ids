@@ -9,7 +9,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @FormElement("brazilian_ids_cnpj")
+ * Base class for CPF and CNPJ elements.
  */
 class CpfCnpjBase extends Textfield implements ContainerFactoryPluginInterface {
 
