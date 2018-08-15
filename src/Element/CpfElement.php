@@ -2,8 +2,6 @@
 
 namespace Drupal\brazilian_ids\Element;
 
-use Drupal\Core\Form\FormStateInterface;
-
 /**
  * @FormElement("brazilian_ids_cpf")
  */
