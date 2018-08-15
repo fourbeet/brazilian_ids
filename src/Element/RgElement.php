@@ -91,7 +91,7 @@ class RgElement extends FormElement {
     $element['rg_fields']['number'] = [
       '#type' => 'textfield',
       '#title' => $element['#number_only'] ? $element['#title'] : t('Number'),
-      '#description' => $elemnt['#number_only'] ? $element['#description'] : '',
+      '#description' => $element['#number_only'] ? $element['#description'] : '',
       '#maxlength' => 20,
       '#size' => 20,
       '#required' => $element['#required'],
