@@ -17,7 +17,8 @@ class CpfElement extends Textfield {
     $info = parent::getInfo();
 
     // Limits the maxlength.
-    $info['#maxlength'] = $info['#size'] = 14;
+    $info['#maxlength'] = 14;
+    $info['#size'] = 20;
 
     // Adds validation callback.
     $info['#element_validate'] = [

@@ -17,7 +17,8 @@ class CnpjElement extends Textfield {
     $info = parent::getInfo();
 
     // Limits the maxlength.
-    $info['#maxlength'] = $info['#size'] = 18;
+    $info['#maxlength'] = 18;
+    $info['#size'] = 20;
 
     // Adds validation callback.
     $info['#element_validate'] = [
