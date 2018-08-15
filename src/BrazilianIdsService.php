@@ -41,10 +41,10 @@ class BrazilianIdsService implements BrazilianIdsServiceInterface {
       // Checks if the value has the correct number of digits and is none of 
       // the forbidden values.
       if (!preg_match('/^[0-9]{11}$/', $value)) {
-        $error['message'] = t('CPF must be a 11-digit number.');
+        $error['message'] = $this->t('CPF must be a 11-digit number.');
       }
       elseif (in_array($value, $forbidden)) {
-        $error['message'] = t('CPF cannot be a sequence of the same digit only.');
+        $error['message'] = $this->t('CPF cannot be a sequence of the same digit only.');
       }
       else {
         // Checks the verification digits.
@@ -52,14 +52,14 @@ class BrazilianIdsService implements BrazilianIdsServiceInterface {
         for ($computed_digits = 0; $computed_digits < 2; $computed_digits++) {
           $sum = 0;
           $n = 11 + $computed_digits;
-          for ($i = 0; $i <= 9 + $computed_digits; $i++) {
+          for ($i = 0; $i < 9 + $computed_digits; $i++) {
             $sum += --$n * substr($valid_number, $i, 1);
           }
           $reminder = $sum % 11;
           $valid_number .= ($reminder < 2) ? 0 : 11 - $reminder;
         }
         if (!($is_valid = $valid_number == $value)) {
-          $error['message'] = t('The number %value is not a valid CPF number.', ['%value' => $value]);
+          $error['message'] = $this->t('The number %value is not a valid CPF number.', ['%value' => $value]);
         }
       }
     }
@@ -90,10 +90,10 @@ class BrazilianIdsService implements BrazilianIdsServiceInterface {
       // Checks if the value has the correct number of digits and is none of 
       // the forbidden values.
       if (!preg_match('/^[0-9]{14}$/', $value)) {
-        $error['message'] = t('CNPJ must be a 14-digit number.');
+        $error['message'] = $this->t('CNPJ must be a 14-digit number.');
       }
       elseif (in_array($value, $forbidden)) {
-        $error['message'] = t('CNPJ cannot be a sequence of the same digit only.');
+        $error['message'] = $this->t('CNPJ cannot be a sequence of the same digit only.');
       }
       else {
         // Checks the verification digits.
@@ -111,7 +111,7 @@ class BrazilianIdsService implements BrazilianIdsServiceInterface {
         $digit2 = ($sum2 % 11 < 2) ? 0 : 11 - $sum2 % 11;
 
         if (!($is_valid = $value[12] == $digit1 && $value[13] == $digit2)) {
-          $error['message'] = t('The number %value is not a valid CNPJ number.', ['%value' => $value]);
+          $error['message'] = $this->t('The number %value is not a valid CNPJ number.', ['%value' => $value]);
         }
       }
     }
@@ -136,7 +136,7 @@ class BrazilianIdsService implements BrazilianIdsServiceInterface {
       }
       else {
         // Value does not match any of the allowed formats.
-        $error['message'] = t('The number %value does not match a CPF or a CNPJ number.', ['%value' => $value]);
+        $error['message'] = $this->t('The number %value does not match a CPF or a CNPJ number.', ['%value' => $value]);
       }
     }
     return $is_valid;
